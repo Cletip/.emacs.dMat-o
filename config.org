@@ -24,7 +24,7 @@
 *** Message de base à nil
 
 #+begin_src emacs-lisp
-  (setq initial-scratch-message nil)
+  (setq initial-scratch-message "Buffer scratch en org-mode !")
 #+end_src
 
 *** Mode de base dans scratch
@@ -410,9 +410,8 @@ utilise la touche TAB pour indenter (et non pour insérer une tabulation)
 
 #+begin_src emacs-lisp
 
-(defun reload-configuration-of-emacs()
-
-
-)
+  (defun reload-configuration-of-emacs()
+    (interactive)
+    (org-babel-load-file (concat user-emacs-directory "config.org")))
 
 #+end_src
