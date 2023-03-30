@@ -1,6 +1,8 @@
 
 * Raccourcis
 
+** Moteur principal
+
 #+begin_src emacs-lisp
 
     (use-package xah-fly-keys
@@ -13,6 +15,28 @@
       (xah-fly-keys-set-layout "optimot")
       ;; (xah-fly-keys 1)
   )
+
+#+end_src
+
+
+** Compter le nombre de chaque commande faite (bien pour optimiser les raccourcis)
+
+keyfreq-show pour voir le nombre de commandes
+
+#+begin_src emacs-lisp
+  (use-package keyfreq
+    :config
+    ;;   Pour exclure des commandes
+    (setq keyfreq-excluded-commands
+          '(
+            mouse-drag-region
+            lsp-ui-doc--handle-mouse-movement
+            mouse-set-point
+            mwheel-scroll
+            ))
+    (setq keyfreq-buffer "*keyfreq-buffer*")
+    (keyfreq-mode 1)
+    (keyfreq-autosave-mode 1))
 
 #+end_src
 
